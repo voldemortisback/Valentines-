@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Sorry</title>
+
   <style>
     body {
-      height: 100vh;
       margin: 0;
-      background: linear-gradient(135deg, #2c3e50, #000);
+      height: 100vh;
+      background: linear-gradient(135deg, #1c1c1c, #000);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -15,36 +16,61 @@
       font-family: Arial, sans-serif;
       overflow: hidden;
     }
+
+    .content {
+      text-align: center;
+      z-index: 2;
+    }
+
     h1 {
       font-size: 3rem;
+      margin-top: 20px;
       opacity: 0;
       animation: fadeIn 2s forwards;
     }
-    @keyframes fadeIn { to { opacity: 1; } }
+
+    img {
+      width: 160px;
+      opacity: 0.8;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
     .rain {
       position: absolute;
       top: -10px;
       font-size: 18px;
       animation: fall linear infinite;
     }
+
     @keyframes fall {
-      to { transform: translateY(110vh); }
+      to {
+        transform: translateY(110vh);
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Sorry, I have better taste. 💔</h1>
 
-<script>
-  setInterval(() => {
-    const drop = document.createElement("div");
-    drop.className = "rain";
-    drop.innerText = "💧";
-    drop.style.left = Math.random() * 100 + "vw";
-    drop.style.animationDuration = Math.random() * 2 + 2 + "s";
-    document.body.appendChild(drop);
-    setTimeout(() => drop.remove(), 5000);
-  }, 200);
-</script>
+  <div class="content">
+    <img src="https://i.imgur.com/2DhmtJ4.png" alt="Broken Heart">
+    <h1>Sorry, I have better taste 💔</h1>
+  </div>
+
+  <script>
+    setInterval(() => {
+      const drop = document.createElement("div");
+      drop.className = "rain";
+      drop.innerText = "💧";
+      drop.style.left = Math.random() * 100 + "vw";
+      drop.style.animationDuration = Math.random() * 2 + 2 + "s";
+      document.body.appendChild(drop);
+
+      setTimeout(() => drop.remove(), 5000);
+    }, 200);
+  </script>
+
 </body>
 </html>
